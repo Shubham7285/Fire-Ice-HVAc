@@ -358,7 +358,356 @@ if ( $data && is_numeric( $data['id'] ) ) {
 	{
 		?>
         <script>
-           
+            jQuery(document).ready(function () {
+                var numImage = jQuery('.home-coupon-swiper-<?php echo $widget_id ?> .swiper-slide').length;
+                if (numImage <= 3) {
+                    jQuery('.home-coupon-swiper-<?php echo $widget_id ?> .swiper-wrapper').addClass('justify-content-center ps-lg-3');
+                    new Swiper(".home-coupon-swiper-<?php echo $widget_id ?>", {
+                        spaceBetween: 30,
+                        slidesPerView: 1,
+                        loop: false,
+                        pagination: {
+                            el: ".home-coupon-pagination-<?php echo $widget_id ?>",
+                            clickable: true
+                        },
+                        breakpoints: {
+                            640: {
+                                slidesPerView: 1,
+                                spaceBetween: 30
+                            },
+                            768: {
+                                slidesPerView: 1,
+                                spaceBetween: 30
+                            },
+                            992: {
+                                slidesPerView: 3,
+                                spaceBetween: 30
+                            }
+                        }
+                    });
+                } else {
+                    new Swiper(".home-coupon-swiper-<?php echo $widget_id ?>", {
+                        spaceBetween: 30,
+                        slidesPerView: 1,
+                        autoplay: {
+                            delay: 8000,
+                            disableOnInteraction: false
+                        },
+                        loop:true,
+                        pagination: {
+                            el: ".home-coupon-pagination-<?php echo $widget_id ?>",
+                            clickable: true
+                        },
+                        breakpoints: {
+                            640: {
+                                slidesPerView: 1,
+                                spaceBetween: 30
+                            },
+                            768: {
+                                slidesPerView: 1,
+                                spaceBetween: 30
+                            },
+                            992: {
+                                slidesPerView: 3,
+                                spaceBetween: 30
+                            }
+                        }
+                    });
+                    var mySwiper = document.querySelector('.home-coupon-swiper-<?php echo $widget_id ?>').swiper
+                    document.querySelectorAll('.request_service_button').forEach(function(button) {
+                        button.addEventListener('click', function() {
+                            if (document.getElementById('request_coupon_form').classList.contains('show')) {
+                                mySwiper.autoplay.stop();
+                            }
+                        });
+                    });
+
+                    document.querySelector('.coupon-popup-close').addEventListener('click', function() {
+                        if (!document.getElementById('request_coupon_form').classList.contains('show')) {
+                            mySwiper.autoplay.start();
+                        }
+                    });
+                }
+                
+
+                new Swiper(".m-home-coupon-swiper-<?php echo $widget_id ?>", {
+                    spaceBetween: 30,
+                    slidesPerView: 1,
+                    autoplay: {
+                        delay: 8000,
+                        disableOnInteraction: false
+                    },
+                    loop: true,
+                    pagination: {
+                        el: ".m-home-coupon-pagination-<?php echo $widget_id ?>",
+                        clickable: true
+                    },
+                    breakpoints: {
+                        640: {
+                            slidesPerView: 1,
+                            spaceBetween: 30
+                        },
+                        768: {
+                            slidesPerView: 1,
+                            spaceBetween: 30
+                        },
+                        992: {
+                            slidesPerView: 3,
+                            spaceBetween: 30
+                        }
+                    }
+                }); 
+                if(jQuery('.m-home-coupon-swiper-<?php echo $widget_id ?>').length == 1){
+                    var mySwipera = document.querySelector('.m-home-coupon-swiper-<?php echo $widget_id ?>').swiper
+                    document.querySelectorAll('.request_service_button').forEach(function(button) {
+                        button.addEventListener('click', function() {
+                            if (document.getElementById('request_coupon_form').classList.contains('show')) {
+                                mySwipera.autoplay.stop();
+                            }
+                        });
+                    });
+
+                    document.querySelector('.coupon-popup-close').addEventListener('click', function() {
+                        if (!document.getElementById('request_coupon_form').classList.contains('show')) {
+                            mySwipera.autoplay.start();
+                        }
+                    });
+                }
+
+                //variation b
+
+                var numImage_b = jQuery('.home-coupon-swiper-b-<?php echo $widget_id ?> .swiper-slide').length;
+
+                if (numImage_b <= 3) {
+                    jQuery('.home-coupon-swiper-b-<?php echo $widget_id ?> .swiper-wrapper').addClass('justify-content-center ps-lg-3');
+                    new Swiper(".home-coupon-swiper-b", {
+                        spaceBetween: 30,
+                        slidesPerView: 1,
+                        loop: false,
+                        pagination: {
+                            el: ".home-coupon-pagination-b-<?php echo $widget_id ?>",
+                            clickable: true
+                        },
+                        breakpoints: {
+                            640: {
+                                slidesPerView: 1,
+                                spaceBetween: 30
+                            },
+                            768: {
+                                slidesPerView: 1,
+                                spaceBetween: 30
+                            },
+                            992: {
+                                slidesPerView: 3,
+                                spaceBetween: 30
+                            }
+                        }
+                    });
+                } else {
+                    new Swiper(".home-coupon-swiper-b-<?php echo $widget_id ?>", {
+                        spaceBetween: 30,
+                        slidesPerView: 1,
+                        loop:true,
+                        autoplay: {
+                            delay: 8000,
+                            disableOnInteraction: false
+                        },
+                        pagination: {
+                            el: ".home-coupon-pagination-b-<?php echo $widget_id ?>",
+                            clickable: true
+                        },
+                        breakpoints: {
+                            640: {
+                                slidesPerView: 1,
+                                spaceBetween: 30
+                            },
+                            768: {
+                                slidesPerView: 1,
+                                spaceBetween: 30
+                            },
+                            992: {
+                                slidesPerView: 3,
+                                spaceBetween: 30
+                            }
+                        }
+                    });
+                    var mySwiper = document.querySelector('.home-coupon-swiper-b-<?php echo $widget_id ?>').swiper
+                    document.querySelectorAll('.request_service_button').forEach(function(button) {
+                        button.addEventListener('click', function() {
+                            if (document.getElementById('request_coupon_form').classList.contains('show')) {
+                                mySwiper.autoplay.stop();
+                            }
+                        });
+                    });
+
+                    document.querySelector('.coupon-popup-close').addEventListener('click', function() {
+                        if (!document.getElementById('request_coupon_form').classList.contains('show')) {
+                            mySwiper.autoplay.start();
+                        }
+                    });
+                }
+               
+
+                new Swiper(".m-home-coupon-swiper-b-<?php echo $widget_id ?>", {
+                    spaceBetween: 30,
+                    slidesPerView: 1,
+                    autoplay: {
+                        delay: 8000,
+                        disableOnInteraction: false
+                    },
+                    loop:true,
+                    pagination: {
+                        el: ".m-home-coupon-pagination-b-<?php echo $widget_id ?>",
+                        clickable: true
+                    },
+                    breakpoints: {
+                        640: {
+                            slidesPerView: 1,
+                            spaceBetween: 30
+                        },
+                        768: {
+                            slidesPerView: 1,
+                            spaceBetween: 30
+                        },
+                        992: {
+                            slidesPerView: 3,
+                            spaceBetween: 30
+                        }
+                    }
+                }); 
+                if(jQuery('.m-home-coupon-swiper-b-<?php echo $widget_id ?>').length == 1){
+                    var mySwiperb = document.querySelector('.m-home-coupon-swiper-b-<?php echo $widget_id ?>').swiper
+                    document.querySelectorAll('.request_service_button').forEach(function(button) {
+                        button.addEventListener('click', function() {
+                            if (document.getElementById('request_coupon_form').classList.contains('show')) {
+                                mySwiperb.autoplay.stop();
+                            }
+                        });
+                    });
+
+                    document.querySelector('.coupon-popup-close').addEventListener('click', function() {
+                        if (!document.getElementById('request_coupon_form').classList.contains('show')) {
+                            mySwiperb.autoplay.start();
+                        }
+                    });
+                }
+                //variation c
+                var numImage_2 = jQuery('.home-coupon-swiper-c-<?php echo $widget_id ?> .swiper-slide').length;
+
+                if (numImage_2 <= 3) {
+                    jQuery('.home-coupon-swiper-c-<?php echo $widget_id ?> .swiper-wrapper').addClass('justify-content-center ps-lg-3');
+                    new Swiper(".home-coupon-swiper-c-<?php echo $widget_id ?>", {
+                        spaceBetween: 30,
+                        slidesPerView: 1,
+                        loop: false,
+                        pagination: {
+                            el: ".home-coupon-pagination-c-<?php echo $widget_id ?>",
+                            clickable: true
+                        },
+                        breakpoints: {
+                            640: {
+                                slidesPerView: 1,
+                                spaceBetween: 30
+                            },
+                            768: {
+                                slidesPerView: 1,
+                                spaceBetween: 30
+                            },
+                            992: {
+                                slidesPerView: 3,
+                                spaceBetween: 30
+                            }
+                        }
+                    });
+                } else {
+                    new Swiper(".home-coupon-swiper-c-<?php echo $widget_id ?>", {
+                        spaceBetween: 30,
+                        slidesPerView: 1,
+                        loop:true,
+                        autoplay: {
+                            delay: 8000,
+                            disableOnInteraction: true,
+                        },
+                        speed: 1500,
+                        pagination: {
+                            el: ".home-coupon-pagination-c-<?php echo $widget_id ?>",
+                            clickable: true
+                        },
+                        breakpoints: {
+                            640: {
+                                slidesPerView: 1,
+                                spaceBetween: 30
+                            },
+                            768: {
+                                slidesPerView: 1,
+                                spaceBetween: 30
+                            },
+                            992: {
+                                slidesPerView: 3,
+                                spaceBetween: 30
+                            }
+                        }
+                    });
+
+                    var mySwiper = document.querySelector('.home-coupon-swiper-c-<?php echo $widget_id ?>').swiper
+                    document.querySelectorAll('.request_service_button').forEach(function(button) {
+                        button.addEventListener('click', function() {
+                            if (document.getElementById('request_coupon_form').classList.contains('show')) {
+                                mySwiper.autoplay.stop();
+                            }
+                        });
+                    });
+
+                    document.querySelector('.coupon-popup-close').addEventListener('click', function() {
+                        if (!document.getElementById('request_coupon_form').classList.contains('show')) {
+                            mySwiper.autoplay.start();
+                        }
+                    }); 
+                }
+                new Swiper(".m-home-coupon-swiper-c-<?php echo $widget_id ?>", {
+                    spaceBetween: 30,
+                    slidesPerView: 1,
+                    loop:true,
+                    autoplay: {
+                        delay: 8000,
+                        disableOnInteraction: false
+                    },
+                    pagination: {
+                        el: ".m-home-coupon-pagination-c-<?php echo $widget_id ?>",
+                        clickable: true
+                    },
+                    breakpoints: {
+                        640: {
+                            slidesPerView: 1,
+                            spaceBetween: 30
+                        },
+                        768: {
+                            slidesPerView: 1,
+                            spaceBetween: 30
+                        },
+                        992: {
+                            slidesPerView: 3,
+                            spaceBetween: 30
+                        }
+                    }
+                });
+                if(jQuery('.swiper.m-home-coupon-swiper-c-<?php echo $widget_id ?>').length == 1){
+                    var mySwiperc = document.querySelector('.m-home-coupon-swiper-c-<?php echo $widget_id ?>').swiper
+                    document.querySelectorAll('.request_service_button').forEach(function(button) {
+                        button.addEventListener('click', function() {
+                            if (document.getElementById('request_coupon_form').classList.contains('show')) {
+                                mySwiperc.autoplay.stop();
+                            }
+                        });
+                    });
+
+                    document.querySelector('.coupon-popup-close').addEventListener('click', function() {
+                        if (!document.getElementById('request_coupon_form').classList.contains('show')) {
+                            mySwiperc.autoplay.start();
+                        }
+                    });
+                }
+        });
         </script>
         <?php
 	}
